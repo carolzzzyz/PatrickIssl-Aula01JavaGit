@@ -1,0 +1,87 @@
+História, Vantagens, Desvantagens, Mercado e Conceitos Fundamentais do
+Java - LINGUAGEM DE PROGRAMAÇÃO
+Ana Carolina Andrade - 2° Período - Engenharia de Software
+
+História do Java
+A linguagem de programação Java foi criada em 1991 por uma equipe de desenvolvedores da empresa
+Sun Microsystems. O principal responsável pelo projeto foi o engenheiro James Gosling, que liderou
+o desenvolvimento da linguagem.
+O objetivo inicial do projeto era criar uma linguagem que pudesse ser utilizada em diferentes
+dispositivos eletrônicos, como televisores inteligentes e aparelhos domésticos. A ideia era que os
+programas pudessem funcionar em vários tipos de equipamentos sem precisar ser totalmente
+reescritos para cada sistema.
+Um dos conceitos mais importantes do Java ficou conhecido pela frase “Write Once, Run Anywhere”,
+que significa “Escreva uma vez, execute em qualquer lugar”. Isso quer dizer que um programa criado
+em Java pode ser executado em diferentes sistemas operacionais, como Windows, Linux ou macOS,
+sem precisar de grandes alterações no código.
+Isso é possível porque o código Java não é executado diretamente pelo sistema operacional. Ele é
+interpretado por uma máquina virtual chamada Java Virtual Machine (JVM), que funciona como uma
+camada intermediária entre o programa e o sistema. Essa característica foi muito importante para o
+sucesso da linguagem, pois facilitou o desenvolvimento de aplicações que funcionam em diversas
+plataformas.
+Vantagens do Java
+Java possui diversas vantagens que ajudaram a torná-lo uma das linguagens mais utilizadas no mundo.
+Entre os principais pontos positivos estão:
+Portabilidade: Uma das maiores vantagens do Java é a portabilidade. Graças ao uso da Java Virtual
+Machine (JVM), um programa escrito em Java pode ser executado em diferentes sistemas
+operacionais sem precisar ser modificado. Isso facilita muito o desenvolvimento de softwares que
+precisam funcionar em vários ambientes.
+Segurança: Java possui vários mecanismos de segurança que ajudam a proteger os sistemas contra
+erros e falhas. Entre esses mecanismos estão a verificação automática de código, controle de acesso e
+gerenciamento de memória. Esses recursos tornam a linguagem bastante confiável, especialmente
+para aplicações corporativas e sistemas que lidam com dados importantes.
+Orientação a Objetos: Java foi projetado com base no conceito de programação orientada a objetos.
+Isso significa que o código é organizado em classes e objetos, permitindo que os programas sejam
+mais estruturados e fáceis de manter. Esse modelo também facilita a reutilização de código em
+diferentes partes de um projeto.
+Mercado: Outra vantagem importante é que Java é muito utilizado no mercado de tecnologia. Muitas
+empresas utilizam a linguagem para desenvolver sistemas corporativos, aplicações web e plataformas
+de grande porte. Isso faz com que Java seja uma habilidade muito valorizada para quem deseja
+trabalhar na área de desenvolvimento de software.
+
+Comunidade: Java possui uma comunidade muito grande de desenvolvedores ao redor do mundo. Isso
+significa que existem muitos fóruns, tutoriais, bibliotecas e ferramentas disponíveis. Para quem está
+aprendendo, isso facilita bastante encontrar ajuda e soluções para problemas durante o
+desenvolvimento.
+Desvantagens do Java
+Apesar de possuir muitas vantagens, Java também apresenta algumas limitações que podem ser
+consideradas desvantagens.
+Consumo de memória: Uma das principais desvantagens do Java é o maior consumo de memória.
+Como os programas são executados dentro da JVM, eles podem exigir mais recursos do computador
+quando comparados a linguagens que executam diretamente no sistema.
+Codigo mais complexo: Outra característica do Java é que muitas vezes é necessário escrever mais
+linhas de código para realizar tarefas simples. Isso pode tornar o desenvolvimento um pouco mais
+demorado quando comparado com linguagens mais modernas que possuem sintaxe mais compacta.
+Desempenho: Java também pode apresentar desempenho um pouco inferior em comparação com
+linguagens como C ou C++, que são compiladas diretamente para o código de máquina. Como Java
+depende da JVM para executar os programas, pode haver uma pequena perda de desempenho em
+alguns casos.
+
+Empresas que utilizam Java
+Diversas empresas grandes utilizam Java em seus sistemas por causa de sua estabilidade e
+confiabilidade. Seguem alguns exemplos.
+Google: A empresa utiliza Java em diversas áreas, principalmente no desenvolvimento de aplicativos
+para o sistema operacional Android e em partes do backend de seus serviços.
+Amazon: Utiliza Java em muitos de seus sistemas internos e também em serviços de backend que
+fazem parte de sua infraestrutura de comércio eletrônico e computação em nuvem.
+Netflix: Utiliza Java em vários de seus sistemas de backend, responsáveis por processar dados,
+gerenciar usuários e distribuir conteúdo para milhões de pessoas.
+Linkedin: A rede profissional também utiliza Java em grande parte de sua infraestrutura de backend,
+que gerencia perfis, conexões e recomendações entre usuários.
+Uber: Usa Java em sistemas de backend responsáveis por processar solicitações de viagens,
+localização e gerenciamento de dados da plataforma.
+
+Diferença entre JRE e JDK
+Para desenvolver e executar programas em Java, existem duas ferramentas importantes chamadas JRE
+e JDK.
+A JRE (Java Runtime Environment) é o ambiente responsável por executar programas Java. Ela
+contém a Java Virtual Machine (JVM) e as bibliotecas necessárias para rodar aplicações
+
+desenvolvidas na linguagem.
+Já o JDK (Java Development Kit) é um conjunto de ferramentas utilizadas para desenvolver
+programas em Java. Ele inclui o compilador da linguagem, ferramentas de desenvolvimento e também
+a própria JRE.
+A principal diferença é que a JRE serve apenas para executar programas Java, enquanto o JDK
+contém as ferramentas necessárias para criar e desenvolver esses programas.
+Para desenvolver aplicações em Java, o programador precisa instalar o JDK, pois ele já inclui todas as
+ferramentas necessárias para escrever, compilar e executar os programas.
