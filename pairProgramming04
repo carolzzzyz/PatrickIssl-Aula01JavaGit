@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class principal {
+
+	public principal() {
+	}
+	
+	public static void main(String[] args) {
+		 Scanner scanner = new Scanner(System.in);
+		 
+		 double saldo = 0;
+		 double saque = 0;
+		 double deposito = 0;
+		 int opcao = -1;
+		 
+		 while (opcao != 0) {
+		
+		System.out.println("1 - Consultar saldo");
+		System.out.println("2 - Depositar dinheiro");
+		System.out.println("3 - Sacar dinheiro");
+		System.out.println("0 - Sair");
+
+		opcao = scanner.nextInt();
+		
+		if (opcao == 1) {
+			System.out.printf("Seu saldo eh de: %.2f\n", saldo);
+
+		} else if (opcao == 2) {
+		    System.out.println("Deposite o valor desejado:");
+		    deposito = scanner.nextDouble();
+		    
+		    while (deposito <= 0) {
+		    	System.out.println("Valor invalido, digite novamente o valor desejado:");
+		    	deposito = scanner.nextDouble();
+		    }
+		    
+		    saldo = saldo + deposito;
+		    
+
+		} else if (opcao == 3) {
+		    System.out.println("Digite o valor que deseja sacar:");
+		    saque = scanner.nextDouble();
+		    
+		    while (saque <= 0) {
+		    	System.out.println("Valor invalido, digite novamente o valor desejado:");
+		    	saque = scanner.nextDouble();
+		    }
+		    
+		    if (saque > saldo) {
+		        System.out.printf("Saldo insuficiente, saldo atual: %.2f\n", saldo);
+		    } else {
+		        System.out.printf("Operacao concluida, o valor sacado foi: %.2f\n", saque);
+		        saldo = saldo - saque;
+		    }
+
+		} else if (opcao == 0) {
+		    System.out.println("Encerrando...");
+
+		} else {
+		    System.out.println("Opcao invalida! Tente novamente.");
+		}
+		
+	}
+}
+	
+}
