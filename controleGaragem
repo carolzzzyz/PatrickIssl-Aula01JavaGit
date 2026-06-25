@@ -1,0 +1,272 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// Classe Carro
+    
+class Carro {
+    String placa;
+    String modelo;
+    boolean estacionado;
+
+    /*
+        Recebe a placa e o modelo informados pelo usuário.
+        O atributo estacionado começa como false, pois o carro
+        ainda não foi colocado na garagem.
+    */
+    Carro(String placa, String modelo) {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.estacionado = false;
+    }
+}
+
+// Classe Pessoa
+class Pessoa {
+    String nome;
+    String cpf;
+
+    /*
+        Recebe o nome e o CPF digitados pelo usuário
+        e armazena essas informações no objeto.
+    */
+    Pessoa(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+}
+
+// Classe Vaga
+
+class Vaga {
+    int numero;
+    Carro carro;
+    Pessoa proprietario;
+
+    /*
+        Recebe o número da vaga, o carro estacionado
+        e o proprietário desse carro.
+    */
+    Vaga(int numero, Carro carro, Pessoa proprietario) {
+        this.numero = numero;
+        this.carro = carro;
+        this.proprietario = proprietario;
+    }
+}
+
+// Classe Garagem
+
+class Garagem {
+    int capacidadeMaxima;
+
+    /*
+        Lista de objetos Vaga.
+
+        Cada vez que um carro é estacionado,
+        uma nova vaga é criada e adicionada nessa lista.
+    */
+    ArrayList<Vaga> vagas = new ArrayList<>();
+
+    /*
+        Define a capacidade máxima da garagem.
+    */
+    Garagem(int capacidadeMaxima) {
+        this.capacidadeMaxima = capacidadeMaxima;
+    }
+
+// Método estacionado
+    
+    boolean estacionado(String placa) {
+        for (Vaga vaga : vagas) {
+            if (vaga.carro.placa.equalsIgnoreCase(placa)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+// Método estacionar
+
+    void estacionar(Carro carro, Pessoa pessoa) {
+
+        // Verifica se já existe um carro com a mesma placa na garagem.
+        if (estacionado(carro.placa)) {
+            System.out.println("Erro: carro " + carro.placa + " já está estacionado.");
+            return;
+        }
+
+        // Verifica se a garagem já atingiu a capacidade máxima.
+        if (vagas.size() >= capacidadeMaxima) {
+            System.out.println("Erro: garagem cheia. Não há vagas disponíveis.");
+            return;
+        }
+
+        /*
+            Define o número da vaga.
+
+            Como a lista começa vazia, vagas.size() + 1
+            para que a primeira vaga seja número 1.
+        */
+        int numeroVaga = vagas.size() + 1;
+
+        // Marca o carro como estacionado.
+        carro.estacionado = true;
+
+        // Cria uma nova vaga com o número, o carro e o proprietário.
+        Vaga vaga = new Vaga(numeroVaga, carro, pessoa);
+
+        // Adiciona a vaga criada na lista de vagas ocupadas.
+        vagas.add(vaga);
+
+        // Exibe mensagem de sucesso.
+        System.out.println("Carro " + carro.placa + " estacionado na vaga " + numeroVaga + " por " + pessoa.nome + ".");
+    }
+
+// Método retirar
+
+    void retirar(String placa) {
+
+
+    	// O for com índice é usado pra remover uma vaga específica da lista.
+
+        for (int i = 0; i < vagas.size(); i++) {
+            Vaga vaga = vagas.get(i);
+
+            // Compara a placa digitada com a placa do carro da vaga atual.
+            if (vaga.carro.placa.equalsIgnoreCase(placa)) {
+
+                // Marca o carro como não estacionado.
+                vaga.carro.estacionado = false;
+
+                // Remove a vaga da lista, liberando espaço na garagem.
+                vagas.remove(i);
+
+                // Exibe mensagem de confirmação.
+                System.out.println("Carro " + placa + " retirado da garagem.");
+                return;
+            }
+        }
+
+        // Caso a placa não seja encontrada.
+        System.out.println("Erro: carro " + placa + " não encontrado na garagem.");
+    }
+
+// Método listar
+
+    void listar() {
+
+        // Verifica se a lista está vazia.
+        if (vagas.isEmpty()) {
+            System.out.println("Nenhum carro estacionado.");
+            return;
+        }
+
+        System.out.println("Carros estacionados:");
+
+        // Percorre todas as vagas ocupadas e exibe os dados.
+        for (Vaga vaga : vagas) {
+            System.out.println(
+                "Vaga " + vaga.numero +
+                " - " + vaga.carro.placa +
+                " - " + vaga.carro.modelo +
+                " - Proprietário: " + vaga.proprietario.nome
+            );
+        }
+    }
+}
+
+// Classe principal (MAIN)
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Cria o Scanner para ler dados digitados
+        Scanner scanner = new Scanner(System.in);
+
+        // capacidade reduzida a 2 pra teste
+        Garagem garagem = new Garagem(2);
+
+        int opcao;
+
+        do {
+            System.out.println("\n Escolha uma opção:");
+            System.out.println("1 - Estacionar um carro");
+            System.out.println("2 - Retirar um carro");
+            System.out.println("3 - Listar carros estacionados");
+            System.out.println("4 - Encerrar programa");
+
+            // Lê a opção digitada pelo usuário
+            opcao = scanner.nextInt();
+
+            //Limpa a quebra de linha
+
+            scanner.nextLine();
+
+            /*
+                Opção 1: estacionar um carro.
+
+                O usuário informa os dados do carro e do proprietário.
+                Depois o programa cria os objetos e chama o método estacionar.
+            */
+            if (opcao == 1) {
+                System.out.print("Digite a placa do carro: ");
+                String placa = scanner.nextLine();
+
+                System.out.print("Digite o modelo do carro: ");
+                String modelo = scanner.nextLine();
+
+                System.out.print("Digite o nome do proprietário: ");
+                String nome = scanner.nextLine();
+
+                System.out.print("Digite o CPF do proprietário: ");
+                String cpf = scanner.nextLine();
+
+                // Cria o objeto Carro.
+                Carro carro = new Carro(placa, modelo);
+
+                // Cria o objeto Pessoa.
+                Pessoa pessoa = new Pessoa(nome, cpf);
+
+                // Chama o método responsável por estacionar.
+                garagem.estacionar(carro, pessoa);
+
+            /*
+                Opção 2: retirar um carro.
+
+                O usuário informa a placa e o programa tenta remover
+                o carro da garagem.
+            */
+            } else if (opcao == 2) {
+                System.out.print("Digite a placa do carro que deseja retirar: ");
+                String placa = scanner.nextLine();
+
+                // Chama o método responsável por retirar o carro.
+                garagem.retirar(placa);
+
+            /*
+                Opção 3: listar carros estacionados.
+            */
+            } else if (opcao == 3) {
+
+                // Chama o método responsável por listar os carros.
+                garagem.listar();
+
+            /*
+                Opção 4: encerrar o programa.
+            */
+            } else if (opcao == 4) {
+                System.out.println("Programa encerrado.");
+
+            /*
+                Caso o usuário digite uma opção inexistente.
+            */
+            } else {
+                System.out.println("Opção inválida.");
+            }
+
+        } while (opcao != 4);
+
+        // Fecha o Scanner ao final do programa.
+        scanner.close();
+    }
+}
